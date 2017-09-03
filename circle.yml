@@ -13,9 +13,6 @@ dependencies:
     - cabal install --only-dependencies -j
     - cabal configure
 
-  cache_directories:
-    - "~/.cabal"
-
 test:
 
   override:
