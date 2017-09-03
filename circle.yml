@@ -3,6 +3,9 @@ machine:
   ghc:
     version: 7.10.2
 
+  cache_directories:
+    - "~/.cabal"
+
   timezone:
     America/New_York
 
@@ -10,7 +13,6 @@ dependencies:
 
   override:
     - cabal update
-    - cabal sandbox init
     - cabal install --only-dependencies -j
     - cabal configure
 
