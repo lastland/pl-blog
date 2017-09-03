@@ -3,9 +3,6 @@ machine:
   ghc:
     version: 7.10.2
 
-  cache_directories:
-    - "~/.cabal"
-
   timezone:
     America/New_York
 
@@ -15,6 +12,9 @@ dependencies:
     - cabal update
     - cabal install --only-dependencies -j
     - cabal configure
+
+  cache_directories:
+    - "~/.cabal"
 
 test:
 
