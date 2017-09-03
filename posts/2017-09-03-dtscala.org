@@ -753,7 +753,8 @@ extremely interested to hear about it!
 claim that the type information flows from left to right in an
 expression. That is wrong. Scala's type inference algorithm is based
 on a technique called bidirectional type checking that was first
-described by \cite{lti}, and later adapted by \cite{clti}.
+described by [[http://dl.acm.org/citation.cfm?id=345100][Pierce and Turner (1998)]], and later adapted by [[http://dl.acm.org/citation.cfm?id=360207][Odersky,
+et al. (2001)]].
 
 [fn:tisub] Scala employs a local type inference algorithm, so it will
 not walk through the entire program before it tries to solve the
