@@ -738,11 +738,90 @@ complaints to us that it cannot find a proof to show that $3 <
 
 I want to conclude this article by listing a few reading materials.
 
-** On Dependent Types
+** Advanced Scala Features
+
+Though I have implemented everything in this article by myself, I
+would not know how to do that without learning from some great
+resource on Scala. In particular, I have learned some useful
+type-level programming techniques from [[https://underscore.io/books/shapeless-guide/][The Type Astronaut's Guide to
+Shapeless]]. I have also learned a lot from some of Miles Sabin's code,
+including [[https://github.com/milessabin/shapeless/][the shapeless library]], the [[https://github.com/milessabin/strangeloop-2013][source code for his talk at
+StrangeLoop 2013]], and his [[https://github.com/milessabin/tls-philly-rbtree-2016][dependently-typed red-black tree]]
+implementation (but I have a different version [[https://github.com/lastland/DTScala/blob/master/src/main/scala/RBT.scala][here]]).
+
+** Dependent Types in Haskell
+
+Haskell is another main-stream programming language with great support
+for dependent types even though it is not designed to be a language
+with full dependent types. Haskell's type system is rather different
+from Scala, so the way dependent types are "simulated" is very
+different from what we have seen here, and therefore another
+interesting resource if you want to learn something fancy. A starting
+place would be the paper [[http://dl.acm.org/citation.cfm?id=2364522][Dependently Typed Programming with
+Singletons]], or the blog post [[https://www.schoolofhaskell.com/user/konn/prove-your-haskell-for-great-safety/dependent-types-in-haskell][Dependent Types in Haskell]]. More
+interesting examples can be found at Stephanie Weirich's talks such at
+[[https://www.youtube.com/watch?v=n-b1PYbRUOY][Depending on Types]], and [[https://www.youtube.com/watch?v=GgD0KUxMaQs][The Influence of Dependent Types]].
+
+** Full Dependent Types
 
 I hope this article convinces you that dependent types can sometimes
-be useful by enabling you to write down.
+be useful by enabling you to write down expressive
+specifications. However, that is not even close to the full power of
+dependent types. I will briefly discuss some other applications of
+dependent types here, and refer some reading materials to you if you
+want to learn more about them:
 
+*** Languages with Full-Spectrum Dependent Types
+
+There are a lot of languages with full-spectrum dependent types. Some
+popular examples include Gallina (the underlying language used by the
+Coq proof assistant), Agda, Idris, etc. Though I have not read it, but
+I have been informed multiple trusted sources (i.e. my friends) that
+[[https://www.manning.com/books/type-driven-development-with-idris][Type-Driven Development with Idris]] is a great book if you are
+interested to learn more (and it's written in a way that's very
+friendly to people with not much background in dependent types).
+
+*** Theorem Provers
+
+Types are propositions, and programs are proofs -- this is called
+propositions-as-types isomorphism or Curry-Howard correspondence. It
+means writing programs is equivalent to constructing proofs, and a
+type checker is in fact a proof checker. Philip Wadler has an
+excellent talk about this entitled [[https://www.youtube.com/watch?v=IOiZatlZtGU][Types as Propositions]].
+
+With dependent types, more interesting propositions can be expressed
+and proved. A great example of this type of applications is [[https://coq.inria.fr/][the Coq
+proof assistant]]. If you are interested in learning more about Coq, you
+are recommended to read the popular online introductory book [[https://softwarefoundations.cis.upenn.edu/][Software
+Foundations]].
+
+*** Formal Verification
+
+Full-fledge dependent types allow you to use your programs in your
+types. Combining with a theorem prover, you can express a proposition
+about your program (for example, the proposition can be that your
+sorting function returns a sorted list), and prove that it is correct
+all in the same language. This means you can formally prove that your
+program is correct, if you believe in the correctness of the
+language's core and its metatheory. You can find more examples in the
+online introductory book [[https://softwarefoundations.cis.upenn.edu/vfa-current/index.html][Verified Functional Algorithms]], which is also
+the 3rd volume of Software Foundations.
+
+Furthermore, we can verify programs written in other languages, as
+long as we trust that the compiler of that language will preserve the
+semantics between the source code and the compiled code. Though trust
+does not make much sense on huge softwares, compilers themselves are
+just programs that can be written in a dependently-typed languages and
+formally proved to be correct. An example would be [[http://compcert.inria.fr/][CompCert]], a C
+compiler that has been formally verified in Coq. [[http://vst.cs.princeton.edu/][VST]] is a verification
+tool based on CompCert that can help you specify and verify C
+programs.
+
+** Implementing Dependent Types
+
+If you are interested in learning how to implement a language with
+full dependen types, I have been told that [[https://www.andres-loeh.de/LambdaPi/LambdaPi.pdf][a tutorial implementation
+of a dependently typed lambda calculus]] is a great reference.
 
 [fn:implicits] If you want to know more about Scala implicits, I would
 recommend you to read a whole lot of blog posts on the Internet about
