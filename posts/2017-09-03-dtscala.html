@@ -51,6 +51,9 @@
 <li>an <code>app</code> function that takes two vectors, and returns a list whose length is the sum of their lengths.</li>
 <li>an indexing method with compile-time bounds checking.</li>
 </ul>
+<p>All the example code shown in this article does not require any extra library other than vanilla Scala 2.12.</p>
+<p>A complete version of the source code can be found at:</p>
+<p><a href="https://github.com/lastland/DTScala" class="uri">https://github.com/lastland/DTScala</a></p>
 <h1 id="putting-numbers-in-your-types">Putting Numbers in Your Types</h1>
 <p>A vector’s length ranges from 0 to infinite, so natural numbers are clearly the best representation for it. How do we encode natural numbers in Scala?</p>
 <div class="sourceCode"><pre class="sourceCode Scala"><code class="sourceCode scala"><span class="kw">type</span> Nat = Int</code></pre></div>
