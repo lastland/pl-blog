@@ -60,6 +60,13 @@ of its length at type-level, we can define the following operations:
   length is the sum of their lengths.
 - an indexing method with compile-time bounds checking.
 
+All the example code shown in this article does not require any extra
+library other than vanilla Scala 2.12.
+
+A complete version of the source code can be found at:
+
+https://github.com/lastland/DTScala
+
 * Putting Numbers in Your Types
 
 A vector's length ranges from 0 to infinite, so natural numbers are
