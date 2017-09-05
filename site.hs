@@ -1,10 +1,19 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
-import           Data.Monoid (mappend)
+import           Data.Monoid               (mappend)
 import           Hakyll
-
+import           Text.Pandoc
+import           Text.Pandoc.Writers.LaTeX
 
 --------------------------------------------------------------------------------
+
+writeTexPandoc :: WriterOptions -> Item Pandoc -> Item String
+writeTexPandoc wopt = fmap $ writeLaTeX wopt
+
+texCompiler :: Compiler (Item String)
+texCompiler = writeTexPandoc defaultHakyllWriterOptions <$>
+              (readPandoc =<< getResourceBody)
+
 main :: IO ()
 main = hakyll $ do
     match "images/*" $ do
@@ -27,6 +36,12 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
+
+--    match "posts/*" $ version "tex" $ do
+--        route $ setExtension "tex"
+--        compile $ texCompiler
+--            >>= loadAndApplyTemplate "templates/post.tex"     postCtx
+--            >>= relativizeUrls
 
     create ["archive.html"] $ do
         route idRoute

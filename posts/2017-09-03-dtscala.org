@@ -1,5 +1,6 @@
 ---
 title: Dependent Types in Scala
+author: Yao Li
 tags: scala dependent-type
 ---
 #+TITLE: Dependent Types in Scala
@@ -776,8 +777,8 @@ want to learn more about them:
 There are a lot of languages with full-spectrum dependent types. Some
 popular examples include Gallina (the underlying language used by the
 Coq proof assistant), Agda, Idris, etc. Though I have not read it, but
-I have been informed multiple trusted sources (i.e. my friends) that
-[[https://www.manning.com/books/type-driven-development-with-idris][Type-Driven Development with Idris]] is a great book if you are
+I have been informed by multiple trusted sources (i.e. my friends)
+that [[https://www.manning.com/books/type-driven-development-with-idris][Type-Driven Development with Idris]] is a great book if you are
 interested to learn more (and it's written in a way that's very
 friendly to people with not much background in dependent types).
 
